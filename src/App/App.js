@@ -6,7 +6,7 @@ class App extends Component {
     super(props)
     this.state={
         list:[],
-        randomList:[]   
+        randomList:[],        
     }
   }
   
@@ -89,11 +89,37 @@ class App extends Component {
                           </span>                        
                         )
                     })
-                  }
+                  }          
+            <input type="text" name="name" placeholder="+添加学员" onKeyUp={this.inputChange}/>            
         </footer>
       </div>
     );
   }
-}
+  inputChange(e){    
+    if(e.keyCode === 13){
+      fetch('http://localhost:8080/addUser',{
+      method: 'POST',
+      mode: 'cors',      
+      body: e.target.value,
+    })
+    .then((response) => {
+      console.log(response)
+      console.log(response.ok)
+      if(response.ok){
+        return Promise.resolve();
+      }
+      return Promise.reject();
+    })   
+    .then(() => {
+      this.getUserList()      
+    }) 
+    .catch(() => {
+      console.log('fail!')
+    })      
+    }        
+  }
 
+  
+
+}
 export default App;
