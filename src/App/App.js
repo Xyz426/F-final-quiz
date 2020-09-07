@@ -34,6 +34,32 @@ class App extends Component {
       console.log('fail!')
     })
   }
+
+  getUserRandomList = () => {
+    fetch('http://localhost:8080/userRandomList',{
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then((response) => {
+      if(response.ok){
+        return Promise.resolve(response.json());
+      }
+      return Promise.reject();
+    })
+    .then((data) => {
+      this.setState({
+        randomList: data
+      })
+      console.log(this.state.randomList)
+    })
+    .catch(() => {
+      console.log('fail!')
+    })
+  }
+
   componentDidMount(){
     this.getUserList();
   }
@@ -43,13 +69,13 @@ class App extends Component {
         <header>
           <div>
             <h1 className="title">分组列表</h1>
-            <button className="grouping">分组学员</button>
+            <button type='button' className="grouping" onClick={this.getUserRandomList}>分组学员</button>
           </div>
         </header>
 
         <main>
             {this.state.randomList.map((item,index)=>{
-                        return <li key={index}>{item.id}{item.name}</li>
+                        return <span key={index}>{item.id}{item.userName}</span>
                     })
                   }
         </main>
