@@ -8,7 +8,35 @@ class App extends Component {
         list:[],
         randomList:[]   
     }
-}
+  }
+  
+  getUserList = () => {
+    fetch('http://localhost:8080/userList',{
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then((response) => {
+      if(response.ok){
+        return Promise.resolve(response.json());
+      }
+      return Promise.reject();
+    })
+    .then((data) => {
+      this.setState({
+        list: data
+      })
+      console.log(this.state.list)
+    })
+    .catch(() => {
+      console.log('fail!')
+    })
+  }
+  componentDidMount(){
+    this.getUserList();
+  }
   render() {
     return (
       <div data-testid="app" className="App">
@@ -27,8 +55,13 @@ class App extends Component {
         </main>
 
         <footer>
+            <h1>学员列表</h1>
             {this.state.list.map((item,index)=>{
-                        return <li key={index}>{item.id}{item.name}</li>
+                        return (
+                          <span key={index}>
+                            {item.id}.{item.userName}
+                          </span>                        
+                        )
                     })
                   }
         </footer>
