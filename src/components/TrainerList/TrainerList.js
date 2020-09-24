@@ -45,7 +45,7 @@ class TrainerList extends Component{
                 {this.state.trainers.map((item,index) => {
                     return(
                         <span key={index} className='trainer'>
-                            {item.id}{item.name}
+                            {item.id}.{item.name}
                         </span>
                     )
                 })}       

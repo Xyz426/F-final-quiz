@@ -1,8 +1,10 @@
-.group-list{
+.header-groupList{
     display: flex;
     justify-content: space-between;
     .header-title{
+        color: #434343;
         font-size: 24px;
+        font-weight: normal;;
     }
     
     .group-button{

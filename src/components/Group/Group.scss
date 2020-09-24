@@ -1,0 +1,9 @@
+.group-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .group-trainers{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
