@@ -1,0 +1,15 @@
+.group-list{
+    display: flex;
+    justify-content: space-between;
+    .header-title{
+        font-size: 24px;
+    }
+    
+    .group-button{
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 30px;
+        border: none;
+    }
+}
