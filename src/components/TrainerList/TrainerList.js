@@ -47,7 +47,7 @@ class TrainerList extends Component{
                     return(
                         //TODO feedback: 使用index作为key不是最佳实践
                         <span key={index} className='trainer'>
-                            {item.id}{item.name}
+                            {item.id}.{item.name}
                         </span>
                     )
                 })}       

@@ -1,27 +1,38 @@
 import React, { Component } from 'react';
-
+import './Group.scss';
 class Group extends Component{
     constructor(props){
-        super(props);    
+        super(props);
     }
 
     render(){
+        console.log(this.props.trainers[0].name);
         return(
             <div>
-                {this.props.group.map((item,index) => {
-                    return (
-                        <span key={index}>
-                            <header>
-                                <span>{item.name}</span>
-                                <div>item.trainers[0]
-                                     item.trainers[1]
-                                </div>
-                            </header>
-                        </span>                        
-                    )
-                  })
-                } 
+                <header className='group-header'>
+                    <span className='group-name'>
+                        {this.props.name}
+                    </span>  
+                    {this.props.trainers.map((item,index) => {
+                        return (
+                            <span className='group-trainers' key={index}>
+                                {item.id}.{item.name}
+                            </span>
+                        )
+                    })}
+                </header>
+                <main>
+                    {this.props.trainees.map((item,index) => {
+                        return (
+                            <span className='group-trainees' key={index}>
+                                {item.id}.{item.name}
+                            </span>
+                        )
+                    })}  
+                </main>
             </div>
         )
     }
 }
+
+export default Group;

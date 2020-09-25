@@ -40,14 +40,13 @@ class TraineeList extends Component{
     
         
     render(){
-        console.log(this.state.trainees[0]);
         return(
             <div className='trainee-list'>
                 <div className='header-title'>学员列表</div>
                 {this.state.trainees.map((item,index) => {
                     return(
                         <span key={index} className='trainee'>
-                            {item.id}{item.name}
+                            {item.id}.{item.name}
                         </span>
                     )
                 })}       
