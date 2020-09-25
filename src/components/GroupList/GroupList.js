@@ -34,6 +34,7 @@ class GroupList extends Component {
         });
       })
       .catch(() => {
+        // eslint-disable-next-line no-console
         console.log('err');
       });
   };
@@ -58,13 +59,12 @@ class GroupList extends Component {
         });
       })
       .catch(() => {
+        // eslint-disable-next-line no-console
         console.log('err');
       });
   };
 
   render() {
-    // TODO feedback: 没有删除console
-    console.log(this.state.groups);
     return (
       <div className="groupList">
         <header className="header-groupList">
@@ -73,9 +73,9 @@ class GroupList extends Component {
             分组学员
           </button>
         </header>
-        {this.state.groups.map((item, index) => {
+        {this.state.groups.map((item) => {
           return (
-            <span key={index}>
+            <span key={item.id}>
               <Group name={item.name} trainers={item.trainers} trainees={item.trainees} />
             </span>
           );

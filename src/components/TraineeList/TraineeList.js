@@ -14,7 +14,7 @@ class TraineeList extends Component{
     }
 
     getTrainees = () => {
-        //TODO feedback: 没有把API请求抽取到单独的utils文件
+        // TODO feedback: 没有把API请求抽取到单独的utils文件
         fetch('http://localhost:8080/trainees?grouped=false', {
           method: 'GET',
           mode: 'cors',
@@ -34,6 +34,7 @@ class TraineeList extends Component{
             });
           })
           .catch(() => {
+            // eslint-disable-next-line no-console
             console.log('err');
           });
       };
@@ -43,11 +44,11 @@ class TraineeList extends Component{
         return(
             <div className='trainee-list'>
                 <div className='header-title'>学员列表</div>
-                {this.state.trainees.map((item,index) => {
+                {this.state.trainees.map((item) => {
                     return(
-                        <span key={index} className='trainee'>
-                            {item.id}.{item.name}
-                        </span>
+                        <ul key={item.id} className='trainee'>
+                          <li>{item.id}.{item.name}</li>
+                        </ul>
                     )
                 })}       
             </div>
