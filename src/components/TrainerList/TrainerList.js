@@ -42,8 +42,10 @@ class TrainerList extends Component{
         return(
             <div className='trainer-list'>
                 <div className='header-title'>讲师列表</div>
+                {/*TODO feedback: 列表元素没有使用ul li*/}
                 {this.state.trainers.map((item,index) => {
                     return(
+                        //TODO feedback: 使用index作为key不是最佳实践
                         <span key={index} className='trainer'>
                             {item.id}{item.name}
                         </span>

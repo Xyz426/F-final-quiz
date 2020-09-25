@@ -14,7 +14,7 @@ class GroupList extends Component {
         return (
             <div className='group-list'>
                 <div className='header-title'>分组列表</div>
-                <button className='group-button'>分组学员</button>
+                <button className='group-button' type={'button'}>分组学员</button>
             </div>
         )
     }

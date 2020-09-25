@@ -14,6 +14,7 @@ class TraineeList extends Component{
     }
 
     getTrainees = () => {
+        //TODO feedback: 没有把API请求抽取到单独的utils文件
         fetch('http://localhost:8080/trainees?grouped=false', {
           method: 'GET',
           mode: 'cors',
